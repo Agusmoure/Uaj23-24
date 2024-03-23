@@ -41,7 +41,6 @@ Sierra , Alcantarillas, Araña, Robot. suponiendo que el robot sea el que mas se
 ## Eventos
 Aqui vamos a describir todos los eventos que va ejecutar nuestro sistema de telemetría ya sean de un carácter general o específicos del juego, empecemos con los eventos generales:
 * **Evento base:** Se trata de la clase de la que heredaran todos los eventos que se hagan, este evento tiene los siguientes campos:
-	-  Id de sesión
 	- hora del evento
 	- Id del evento
 * **Iniciar el sistema:** Es el primer evento que se debe recoger porque marca el inicio del trackeo de datos, tiene como parámetro el juego a trackear y el id de usuario (ambos se definen en el core del tracker).
@@ -54,5 +53,9 @@ Aqui vamos a describir todos los eventos que va ejecutar nuestro sistema de tele
 * **Fin de nivel**, se lanza al terminar el nivel o porque se supera o porque se pierde
 * **Pausa:** el jugador pone el juego en pausa
 * **Despausa:** el jugador sale de la pausa
+* **Evento de Juego:** Se trata de un evento que servira de base para todos los eventos del juego tendran como parametros comunes:
+	- Id de session
+	- Id del usuario
 
+	
 Después tendremos otros eventos más específicos planteados para Steam Mazehem y más concretamente para las preguntas de investigación planteadas previamente
