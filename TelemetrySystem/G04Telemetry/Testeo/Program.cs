@@ -2,7 +2,8 @@
 using G04Telemetry.CommonEvents;
 void main()
 {
-    Tracker.Init("Testeo",10,SerializeType.JSON);
+    if (Tracker.Init("Testeo", 10, SerializeType.JSON,PersistanceType.File,"pruebas"))
+    {
     bool end = false;
     UInt32 n =6;
     Tracker.Instance().startSession();
@@ -42,9 +43,11 @@ void main()
             default:
                 if (key.Key == ConsoleKey.Escape)
                     end = true;
+                Tracker.Instance().closeTracker();
                 break;
         }
 
+    }
     }
     Console.WriteLine("Fin del programa");
 }

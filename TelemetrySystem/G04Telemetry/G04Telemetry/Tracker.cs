@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using G04Telemetry.CommonEvents;
+using G04Telemetry.Persistance;
 using G04Telemetry.Serialization;
 
 namespace G04Telemetry
@@ -17,7 +18,8 @@ namespace G04Telemetry
         private float _timeToFlush;
         private float _timer;
         private static Tracker _instance;
-        private SerializationInterface serialization;
+        private SerializationInterface _serialization;
+        private PersistanceBase _persistance;
         public static Tracker Instance()
         {
             return _instance;
@@ -28,14 +30,18 @@ namespace G04Telemetry
         /// <param name="gameName">Nombre del juego que se va a trackear</param>
         /// <param name="timeToFlush">Tiempo entre envio y envio de datos</param>
         /// <returns></returns>
-        public static bool Init(string gameName, float timeToFlush,SerializeType serializeType)
+        public static bool Init(string gameName, float timeToFlush,SerializeType serializeType,PersistanceType persistance, string filename="")
         {
             if (_instance != null) return false;
-            _instance = new Tracker(gameName,timeToFlush,serializeType);
+            _instance = new Tracker(gameName,timeToFlush);
+            _instance.initSerialize(serializeType);
+            _instance.initPersistance(persistance,filename);
+
+            _instance.addEvent(new TrackerStartEvent());
             return true;
         }
 
-        private Tracker(string gameName, float timeToFlush,SerializeType serializeType)
+        private Tracker(string gameName, float timeToFlush)
         {
             _timeToFlush = timeToFlush;
             _gameName = gameName;
@@ -49,15 +55,28 @@ namespace G04Telemetry
             {
                 Console.WriteLine("bbb");
             }
+
+            _events = new Queue<BaseEvent>();
+        }
+        private void initSerialize(SerializeType serializeType)
+        {
             switch (serializeType)
             {
                 case SerializeType.JSON:
-                    serialization = new JsonSerialize();
+                    _serialization = new JsonSerialize();
                     break;
-                    default: throw new ArgumentException();
+                default: throw new ArgumentException();
             }
-            _events = new Queue<BaseEvent>();
-            addEvent(new TrackerStartEvent());
+        }
+        private void initPersistance(PersistanceType persistance,string filename)
+        {
+            switch (persistance)
+            {
+                case PersistanceType.File:
+                    _persistance = new FilePersistance(filename, _serialization);
+                    break;
+                default: throw new ArgumentException();
+            }
         }
         public Guid getSessionID()
         {
@@ -69,7 +88,7 @@ namespace G04Telemetry
         /// <param name="e"></param>
         public void addEvent(BaseEvent e)
         {
-            _events.Enqueue(e);
+            _persistance.addEvent(e);
         }
         /// <summary>
         /// Elimina el primer evento de la cola si puede si no lanza excepcion
@@ -78,10 +97,7 @@ namespace G04Telemetry
         /// <exception cref="Exception"></exception>
         public BaseEvent removeEvent()
         {
-            if (_events.Count > 0)
-                return _events.Dequeue();
-            else
-                throw new Exception("No quedan elementos");
+                return _persistance.removeEvent();
         }
 
         public void setSessionID(Guid session)
@@ -162,7 +178,8 @@ namespace G04Telemetry
         public void closeTracker()
         {
             addEvent(new TrackerEndEvent());
-            //TODO hay que enviar los eventos restantes en la cola
+            _persistance.flush();
+            _persistance.close();
         }
 
         public void update(float deltaTime)
@@ -171,12 +188,13 @@ namespace G04Telemetry
             Console.WriteLine(_timer);
             if( _timer > _timeToFlush)
             {
-                Console.WriteLine("FLUSH");
-                //TODO hay que enviar los eventos restantes en la cola
+                _persistance.flush();
                 _timer = 0;
             }
 
         }
+
+        internal SerializationInterface getSerialization() { return _serialization; }
         #region Test Functions
         public Queue<BaseEvent> getEvents()
         {
@@ -184,11 +202,11 @@ namespace G04Telemetry
         }
         public int getNumberOFEvents()
         {
-            return _events.Count;
+            return _persistance.eventCount();
         }
         public string getFirstEventSer()
         {
-            return serialization.serialize(_events.Peek());
+            return _serialization.serialize(_events.Peek());
         }
         #endregion
     }

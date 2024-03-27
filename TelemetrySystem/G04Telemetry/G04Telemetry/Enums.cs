@@ -23,4 +23,8 @@ namespace G04Telemetry
     {
         JSON=0
     }
+    public enum PersistanceType : UInt32
+    {
+        File=0
+    }
 }
