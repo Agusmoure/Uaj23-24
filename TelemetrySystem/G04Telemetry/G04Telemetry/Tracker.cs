@@ -40,6 +40,15 @@ namespace G04Telemetry
             _timeToFlush = timeToFlush;
             _gameName = gameName;
             _userId = Guid.NewGuid();
+            Console.WriteLine(_sessionID);
+            if(_sessionID == Guid.Empty)
+            {
+                Console.WriteLine("aAA");
+            }
+            else
+            {
+                Console.WriteLine("bbb");
+            }
             switch (serializeType)
             {
                 case SerializeType.JSON:

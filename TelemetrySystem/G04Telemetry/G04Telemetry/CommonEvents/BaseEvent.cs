@@ -10,16 +10,27 @@ namespace G04Telemetry.CommonEvents
     {
         protected uint _eventId;
         protected long _timeStamp;
-
+        protected Guid _sessionID;
+        protected Guid _userID;
         protected Dictionary<string, object> _data;
         public BaseEvent(uint id)
         {
             _eventId = id;
-            _timeStamp = _timeStamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(); ;
-            // _sessionID = Tracker.Instance().getSessionID();
+            _timeStamp = _timeStamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             _data = new Dictionary<string, object>();
+            _sessionID = Tracker.Instance().getSessionID();
+            _userID = Tracker.Instance().getUserID();
             _data.Add("eventId", id);
             _data.Add("timestamp", _timeStamp);
+            //Datos que deben compartir todos los eventos siempre y cuando existan
+            if(_sessionID!=Guid.Empty)
+            {
+            _data.Add("Session", _sessionID);
+            }
+            if (_userID != Guid.Empty)
+            {
+                _data.Add("User", _userID);
+            }
         }
         public uint getIDEvent()
         {
