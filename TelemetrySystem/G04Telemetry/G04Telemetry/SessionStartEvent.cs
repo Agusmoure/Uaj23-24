@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G04Telemetry
 {
-    public class SessionStartEvent:BaseEvent
+    internal class SessionStartEvent:BaseEvent
     {
         Guid _session;
         public SessionStartEvent(string gameName, Guid userID):base(((uint)EventID.SessionStart))

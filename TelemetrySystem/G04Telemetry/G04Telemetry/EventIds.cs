@@ -12,5 +12,11 @@ namespace G04Telemetry
         TrackerEnd = 1,
         SessionStart= 2,
         SessionStop= 3,
+        GameStart= 4,
+        GameEnd= 5,
+        LevelStart= 6,
+        LevelEnd= 7,
+        Pause=8,
+        Resume= 9
     }
 }

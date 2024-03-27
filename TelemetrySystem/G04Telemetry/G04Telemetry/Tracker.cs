@@ -12,19 +12,29 @@ namespace G04Telemetry
         private Guid _sessionID;
         private Guid _userId;
         private string _gameName;
+        private float _timeToFlush;
+        private float _timer;
         private static Tracker _instance;
         public static Tracker Instance()
         {
             return _instance;
         }
-        public static bool Init(string gameName)
+        /// <summary>
+        /// Inicializa el tracker
+        /// </summary>
+        /// <param name="gameName">Nombre del juego que se va a trackear</param>
+        /// <param name="timeToFlush">Tiempo entre envio y envio de datos</param>
+        /// <returns></returns>
+        public static bool Init(string gameName, float timeToFlush)
         {
             if (_instance != null) return false;
-            _instance = new Tracker(gameName);
+            _instance = new Tracker(gameName,timeToFlush);
             return true;
         }
-        private Tracker(string gameName)
+
+        private Tracker(string gameName, float timeToFlush)
         {
+            _timeToFlush = timeToFlush;
             _gameName = gameName;
             _userId = Guid.NewGuid();
             _events = new Queue<BaseEvent>();
@@ -72,6 +82,17 @@ namespace G04Telemetry
         public Queue<BaseEvent> getEvents()
         {
             return _events;
+        }
+        public void update(float deltaTime)
+        {
+            _timer += deltaTime;
+            Console.WriteLine(_timer);
+            if( _timer > _timeToFlush)
+            {
+                Console.WriteLine("FLUSH");
+                _timer = 0;
+            }
+
         }
     }
 
