@@ -19,4 +19,8 @@ namespace G04Telemetry
         Pause=8,
         Resume= 9
     }
+    public enum SerializeType : UInt32
+    {
+        JSON=0
+    }
 }

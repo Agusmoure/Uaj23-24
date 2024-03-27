@@ -1,7 +1,8 @@
 ﻿using G04Telemetry;
- void main()
+using G04Telemetry.CommonEvents;
+void main()
 {
-    Tracker.Init("Testeo",10);
+    Tracker.Init("Testeo",10,SerializeType.JSON);
     bool end = false;
     UInt32 n =6;
     Tracker.Instance().startSession();
@@ -31,10 +32,13 @@
                 Queue<BaseEvent> events = Tracker.Instance().getEvents();
                 while (events.Any())
                 {
+                    Console.WriteLine(Tracker.Instance().getFirstEventSer());
                     Console.WriteLine(events.Dequeue().getIDEvent());
                 }
                 break;
-
+            case 'n':
+                Console.WriteLine(Tracker.Instance().getFirstEventSer());
+                break;
             default:
                 if (key.Key == ConsoleKey.Escape)
                     end = true;

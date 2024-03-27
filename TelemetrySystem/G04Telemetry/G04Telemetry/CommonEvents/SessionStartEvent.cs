@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace G04Telemetry
+namespace G04Telemetry.CommonEvents
 {
-    internal class SessionStartEvent:BaseEvent
+    internal class SessionStartEvent : BaseEvent
     {
         Guid _session;
-        public SessionStartEvent(string gameName, Guid userID):base(((uint)EventID.SessionStart))
+        public SessionStartEvent(string gameName, Guid userID) : base((uint)EventID.SessionStart)
         {
             _data.Add("Game", gameName);
             _data.Add("UserID", userID);
-            _session= Guid.NewGuid();
+            _session = Guid.NewGuid();
             Tracker.Instance().setSessionID(_session);
         }
 

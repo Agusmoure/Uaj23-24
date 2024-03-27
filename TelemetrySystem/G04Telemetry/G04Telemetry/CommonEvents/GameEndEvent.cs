@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace G04Telemetry
+namespace G04Telemetry.CommonEvents
 {
-    internal class LevelStartEvent:BaseEvent
+    internal class GameEndEvent : BaseEvent
     {
-        public LevelStartEvent() : base(((uint)EventID.LevelStart))
+        public GameEndEvent() : base((uint)EventID.GameEnd)
         {
 
         }

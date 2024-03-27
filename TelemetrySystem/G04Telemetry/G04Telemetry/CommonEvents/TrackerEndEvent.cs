@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace G04Telemetry
+namespace G04Telemetry.CommonEvents
 {
-    internal class PauseEvent:BaseEvent
+    internal class TrackerEndEvent : BaseEvent
     {
-        public PauseEvent():base(((uint)EventID.Pause))
+        public TrackerEndEvent() : base((uint)EventID.TrackerEnd)
         {
 
         }

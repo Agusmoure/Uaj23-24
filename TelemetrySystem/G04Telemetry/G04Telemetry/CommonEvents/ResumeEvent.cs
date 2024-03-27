@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace G04Telemetry
+namespace G04Telemetry.CommonEvents
 {
-    internal class GameEndEvent:BaseEvent
+    internal class ResumeEvent : BaseEvent
     {
-        public GameEndEvent() : base(((uint)EventID.GameEnd))
+        public ResumeEvent() : base((uint)EventID.Resume)
         {
 
         }

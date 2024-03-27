@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace G04Telemetry
+namespace G04Telemetry.CommonEvents
 {
-    internal class TrackerStartEvent:BaseEvent
+    internal class GameStartEvent : BaseEvent
     {
-        public TrackerStartEvent() : base(((uint)EventID.TrackerInitialize))
+        public GameStartEvent() : base((uint)EventID.GameStart)
         {
 
         }
+
     }
 }

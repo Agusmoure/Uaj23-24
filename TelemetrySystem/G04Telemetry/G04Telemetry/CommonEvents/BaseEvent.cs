@@ -4,26 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace G04Telemetry
+namespace G04Telemetry.CommonEvents
 {
     public class BaseEvent
     {
-        public UInt32 _eventId;
-        public long _timeStamp;
+        protected uint _eventId;
+        protected long _timeStamp;
 
-        public Dictionary<string, object> _data;
-        public BaseEvent(UInt32 id) {
-        _eventId = id;
+        protected Dictionary<string, object> _data;
+        public BaseEvent(uint id)
+        {
+            _eventId = id;
             _timeStamp = _timeStamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(); ;
-           // _sessionID = Tracker.Instance().getSessionID();
+            // _sessionID = Tracker.Instance().getSessionID();
             _data = new Dictionary<string, object>();
             _data.Add("eventId", id);
             _data.Add("timestamp", _timeStamp);
         }
-        public UInt32 getIDEvent()
+        public uint getIDEvent()
         {
             return _eventId;
         }
-        public long getTimeStamp() { return _timeStamp;}
+        public long getTimeStamp() { return _timeStamp; }
+        public Dictionary<string, object> getData() { return _data; }
     }
 }
