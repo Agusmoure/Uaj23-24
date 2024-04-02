@@ -1,43 +1,39 @@
-# Diseño de evaluación
-En este documento se recoge el objetivo que se va a evaluar, las métricas que se van a utilizar para ello, los eventos que se van a utilizar para poder recoger estas métricas,...
+# Diseño de evaluación- Grupo 04
+En este documento se recoge el objetivo que se va a evaluar, las métricas que se van a utilizar para ello, y los eventos que se van a utilizar para poder recoger estas métricas.
 
 ## Objetivos
-El objetivo de estas pruebas será determinar si la dificultad de Steam Mazehem es el esperado, para ello se han propuesto las siguientes preguntas de investigación:
+El objetivo de estas pruebas será determinar si la dificultad de Steam Mazehem es la esperada. Para ello, se han propuesto las siguientes preguntas de investigación:
 ### Preguntas de investigación:
 
-* ¿El jugador tarda demasiado en completar el nivel 1? 
+* ¿El jugador tarda demasiado tiempo en completar el nivel 1? 
 * ¿El jugador usa demasiados movimientos de salas en los niveles? 
 * ¿El jugador es capaz de acertar los golpes a los enemigos?
-* ¿Todos los enemigos hacen el mismo daño?
+* ¿Cómo varía el daño provocado por cada enemigo a lo largo de la partida?
 
 ## Métricas
-Para responder a las preguntas de investigación previamente hechas se van a utilizar las siguientes métricas:
-1. **¿El jugador tarda demasiado en completar el nivel 1?**
+Para responder a las preguntas de investigación previamente formuladas, se van a utilizar las siguientes métricas:
 
-Para poder responder a esta pregunta se usarán los percentiles para ello se espera que el percentil 85 no corresponda a más de 5 minutos de partida en el nivel 1
+1. **¿El jugador tarda demasiado tiempo en completar el nivel 1?**
+
+Para responder a esta pregunta, se utilizarán los percentiles. Se espera que el percentil 85 no corresponda a más de 5 minutos de partida en el nivel 1.
 
 2. **¿El jugador usa demasiados movimientos de salas en los niveles?**
 
-Para contestar esta pregunta de investigación usaremos la moda, es decir cual es la cantidad de movimientos más repetida que son necesarios para pasarse el nivel, para ello vamos a agrupar los valores en grupos de 5 es decir de [0,4], [5,9],....[50,54].
-
-Se espera que en el nivel 1 la moda se encuentre en el intervalo [5,9] mientras que en el nivel 2 se espera que esté en el intervalo [15,19]
+Para contestar esta pregunta, se utilizará la moda para determinar la cantidad de movimientos más repetida necesarios para pasar cada nivel. Se agruparán los valores en intervalos de 5, como [0,4], [5,9], hasta [50,54]. Se espera que en el nivel 1 la moda se encuentre en el intervalo [5,9], mientras que en el nivel 2 se espera que esté en el intervalo [15,19].
 
 3. **¿El jugador es capaz de acertar los golpes a los enemigos?**
 
-Con la intención de responder a esta pregunta se va a analizar la media de los porcentaje de acierto de golpes entre los usuarios.
+Se analizará la media de los porcentajes de acierto de golpes entre los usuarios. Se espera que la media de aciertos sea entre un 70% y un 80%.
 
-Se espera que la media de aciertos sea de entre un 70% y un 80%
+4. **¿Cómo varía el daño provocado por cada enemigo a lo largo de la partida?**
 
-4. **¿Todos los enemigos hacen el mismo daño?**
+Se utilizará la moda para determinar el enemigo que más daño hace en las partidas. Se espera que el orden sea: Sierra, Alcantarillas, Araña, Robot. Suponiendo que el robot sea el que más se repite en 100 golpes, se espera que la distribución sea de este estilo:
 
-Para responder la última pregunta usaremos la moda, ya que se trata del valor más repetido cosa que nos interesa para saber cual es el enemigo que mas daño hace en las partidas,
-
-Se espera que el orden sea:
-Sierra , Alcantarillas, Araña, Robot. suponiendo que el robot sea el que mas se repita en 100 golpes se espera que la distribución sea de este estilo:
 * Robot:40
 * Araña: 30
 * Alcantarilla:20
-* Sierra:10 
+* Sierra:10
+  
 ## Eventos
 Aqui vamos a describir todos los eventos que va ejecutar nuestro sistema de telemetría ya sean de un carácter general o específicos del juego, empecemos con los eventos generales:
 * **Evento base:** Se trata de la clase de la que heredaran todos los eventos que se hagan, este evento tiene los siguientes campos:
