@@ -37,21 +37,29 @@ Se utilizará la moda para determinar el enemigo que más daño hace en las part
 ## Eventos
 Aqui vamos a describir todos los eventos que va ejecutar nuestro sistema de telemetría ya sean de un carácter general o específicos del juego, empecemos con los eventos generales:
 * **Evento base:** Se trata de la clase de la que heredaran todos los eventos que se hagan, este evento tiene los siguientes campos:
-	- hora del evento
+	- Hora del evento
 	- Id del evento
 * **Iniciar el sistema:** Es el primer evento que se debe recoger porque marca el inicio del trackeo de datos, tiene como parámetro el juego a trackear y el id de usuario (ambos se definen en el core del tracker).
 * **Finalizar sistema:** Sera el ultimo evento de la sesión no tendrá parámetros opcionales
 * **Inicio de sesion:** Se lanza la primera vez que se lanza el juego sera el encargado de crear la id de sesion
 * **Fin de sesion:** se lanza al cerrar el juego
 * **Inicio de partida:** Se lanza al darle a play
-* **Fin de partida** Se lanza al salir de la partida
-* **Inicio de nivel**, se lanza al empezar un nivel
-* **Fin de nivel**, se lanza al terminar el nivel o porque se supera o porque se pierde
+* **Fin de partida** Se lanza al salir de la partida.
+* **Inicio de nivel**, se lanza al empezar un nivel. Tendrá los siguientes parámetros:
+ - Id del nivel
+* **Fin de nivel**, se lanza al terminar el nivel o porque se supera o porque se pierde.
+ - Id del nivel
+ - Causa de fin de nivel: ganar/perder
+ - Vida restante del jugador al finalizar
 * **Pausa:** el jugador pone el juego en pausa
 * **Despausa:** el jugador sale de la pausa
 * **Evento de Juego:** Se trata de un evento que servira de base para todos los eventos del juego tendran como parametros comunes:
-	- Id de session
-	- Id del usuario
+  - Id de sesión
+  - Id del usuario
+* **Evento de ataque:** Evento de juego que se envía cuando el jugador realiza un ataque y guarda información relevante:
+  - Lista de todos los objetos cercanos, a menos de 2m de distancia
+  - Lista de objetos que colisionan con el ataque y sus posiciones
+  - Posición del jugador
 
 	
 Después tendremos otros eventos más específicos planteados para Steam Mazehem y más concretamente para las preguntas de investigación planteadas previamente
