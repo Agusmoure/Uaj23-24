@@ -54,13 +54,9 @@ Aqui vamos a describir todos los eventos que va ejecutar nuestro sistema de tele
  - Causa de fin de nivel: ganar/perder
  - Vida restante del jugador al finalizar
 * **Pausa:** el jugador pone el juego en pausa
-* **Despausa:** el jugador sale de la pausa
+* **Reanudar:** El jugador vuelve al juego desde la pausa
 * **Evento de Juego:** Se trata de un evento que servira de base para todos los eventos del juego
 ### Eventos del juego
-* **Evento de ataque:** Evento de juego que se envía cuando el jugador realiza un ataque y guarda información relevante: __No me convence__
-  - Lista de todos los objetos cercanos, a menos de 2m de distancia
-  - Lista de objetos que colisionan con el ataque y sus posiciones
-  - Posición del jugador
 * **Evento Fin de nivel** Este evento se lanza cada vez que se finaliza un nivel, contiene la siguiente información:
   * Tiempo transcurrido en segundos desde inicio de nivel hasta que se envia este evento
   * Nivel en el que se encuentra
@@ -74,4 +70,3 @@ Aqui vamos a describir todos los eventos que va ejecutar nuestro sistema de tele
   * Posicion jugador
   * Posicion enemigo
   * Jugador sigue vivo (true o false)
-Después tendremos otros eventos más específicos planteados para Steam Mazehem y más concretamente para las preguntas de investigación planteadas previamente __No me convence__
