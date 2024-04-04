@@ -39,6 +39,8 @@ Aqui vamos a describir todos los eventos que va ejecutar nuestro sistema de tele
 * **Evento base:** Se trata de la clase de la que heredaran todos los eventos que se hagan, este evento tiene los siguientes campos:
 	- Hora del evento
 	- Id del evento
+  - Id de sesión
+  - Id del usuario
 * **Iniciar el sistema:** Es el primer evento que se debe recoger porque marca el inicio del trackeo de datos, tiene como parámetro el juego a trackear y el id de usuario (ambos se definen en el core del tracker).
 * **Finalizar sistema:** Sera el ultimo evento de la sesión no tendrá parámetros opcionales
 * **Inicio de sesion:** Se lanza la primera vez que se lanza el juego sera el encargado de crear la id de sesion
@@ -53,13 +55,23 @@ Aqui vamos a describir todos los eventos que va ejecutar nuestro sistema de tele
  - Vida restante del jugador al finalizar
 * **Pausa:** el jugador pone el juego en pausa
 * **Despausa:** el jugador sale de la pausa
-* **Evento de Juego:** Se trata de un evento que servira de base para todos los eventos del juego tendran como parametros comunes:
-  - Id de sesión
-  - Id del usuario
-* **Evento de ataque:** Evento de juego que se envía cuando el jugador realiza un ataque y guarda información relevante:
+* **Evento de Juego:** Se trata de un evento que servira de base para todos los eventos del juego
+### Eventos del juego
+* **Evento de ataque:** Evento de juego que se envía cuando el jugador realiza un ataque y guarda información relevante: __No me convence__
   - Lista de todos los objetos cercanos, a menos de 2m de distancia
   - Lista de objetos que colisionan con el ataque y sus posiciones
   - Posición del jugador
-
-	
-Después tendremos otros eventos más específicos planteados para Steam Mazehem y más concretamente para las preguntas de investigación planteadas previamente
+* **Evento Fin de nivel** Este evento se lanza cada vez que se finaliza un nivel, contiene la siguiente información:
+  * Tiempo transcurrido en segundos desde inicio de nivel hasta que se envia este evento
+  * Nivel en el que se encuentra
+  * Cantidad de movimientos de sala
+* **Evento de ataque** Este evento se lanza cada vez que el jugador lanza un ataque de parametros contiene:
+  * posicion del jugador
+* **Evento daño a enemigo** Este evento se lanza cada vez que un enemigo recibe daño:
+  * Posicion del enemigo
+* **Evento daño a jugador** Este evento se lanza cada vez que un enemigo ataca al jugador:
+  * Tipo de enemigo
+  * Posicion jugador
+  * Posicion enemigo
+  * Jugador sigue vivo (true o false)
+Después tendremos otros eventos más específicos planteados para Steam Mazehem y más concretamente para las preguntas de investigación planteadas previamente __No me convence__
