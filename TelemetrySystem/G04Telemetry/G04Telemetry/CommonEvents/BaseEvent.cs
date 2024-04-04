@@ -23,14 +23,9 @@ namespace G04Telemetry.CommonEvents
             _data.Add("eventId", id);
             _data.Add("timestamp", _timeStamp);
             //Datos que deben compartir todos los eventos siempre y cuando existan
-            if(_sessionID!=Guid.Empty)
-            {
             _data.Add("Session", _sessionID);
-            }
-            if (_userID != Guid.Empty)
-            {
-                _data.Add("User", _userID);
-            }
+            _data.Add("User", _userID);
+
         }
         public uint getIDEvent()
         {

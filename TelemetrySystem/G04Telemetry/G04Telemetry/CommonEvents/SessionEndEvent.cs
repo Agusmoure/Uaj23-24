@@ -11,8 +11,6 @@ namespace G04Telemetry.CommonEvents
         Guid _sessionId;
         public SessionEndEvent() : base((uint)EventID.SessionStop)
         {
-            _sessionId = Tracker.Instance().getSessionID();
-            _data.Add("Session", _sessionId);
         }
     }
 }

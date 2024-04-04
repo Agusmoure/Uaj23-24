@@ -6,25 +6,23 @@ using System.Threading.Tasks;
 
 namespace G04Telemetry
 {
-    public enum EventID:UInt32
+    public enum EventID : UInt32
     {
-        TrackerInitialize = 0,
-        TrackerEnd = 1,
-        SessionStart= 2,
-        SessionStop= 3,
-        GameStart= 4,
-        GameEnd= 5,
-        LevelStart= 6,
-        LevelEnd= 7,
-        Pause=8,
-        Resume= 9
+        SessionStart = 0,
+        SessionStop = 1,
+        GameStart = 2,
+        GameEnd = 3,
+        LevelStart = 4,
+        LevelEnd = 5,
+        Pause = 6,
+        Resume = 7
     }
     public enum SerializeType : UInt32
     {
-        JSON=0
+        JSON = 0
     }
     public enum PersistanceType : UInt32
     {
-        File=0
+        File = 0
     }
 }

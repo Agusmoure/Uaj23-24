@@ -36,8 +36,7 @@ namespace G04Telemetry
             _instance = new Tracker(gameName,timeToFlush);
             _instance.initSerialize(serializeType);
             _instance.initPersistance(persistance,filename);
-
-            _instance.addEvent(new TrackerStartEvent());
+            _instance.startSession(_instance);
             return true;
         }
 
@@ -46,17 +45,8 @@ namespace G04Telemetry
             _timeToFlush = timeToFlush;
             _gameName = gameName;
             _userId = Guid.NewGuid();
-            Console.WriteLine(_sessionID);
-            if(_sessionID == Guid.Empty)
-            {
-                Console.WriteLine("aAA");
-            }
-            else
-            {
-                Console.WriteLine("bbb");
-            }
-
             _events = new Queue<BaseEvent>();
+
         }
         private void initSerialize(SerializeType serializeType)
         {
@@ -97,10 +87,10 @@ namespace G04Telemetry
         /// <exception cref="Exception"></exception>
         public BaseEvent removeEvent()
         {
-                return _persistance.removeEvent();
+           return _persistance.removeEvent();
         }
 
-        public void setSessionID(Guid session)
+        internal void setSessionID(Guid session)
         {
             _sessionID = session;
         }
@@ -112,16 +102,18 @@ namespace G04Telemetry
         /// <summary>
         /// Añade el evento de inicio de sesion
         /// </summary>
-        public void startSession()
+        void startSession(Tracker t)
         {
-            addEvent(new SessionStartEvent(_gameName, _userId));
+            addEvent(new SessionStartEvent(t,_gameName, _userId));
         }
         /// <summary>
-        /// Añade ek evento de fin de sesion
+        /// Añade el evento de fin de sesion
         /// </summary>
-        public void endSession()
+         void endSession()
         {
             addEvent(new SessionEndEvent());
+            _persistance.flush();
+            _persistance.close();
         }
         #endregion
         #region Game
@@ -177,9 +169,8 @@ namespace G04Telemetry
         /// </summary>
         public void closeTracker()
         {
-            addEvent(new TrackerEndEvent());
-            _persistance.flush();
-            _persistance.close();
+           endSession();
+
         }
 
         public void update(float deltaTime)
