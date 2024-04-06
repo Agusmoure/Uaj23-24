@@ -25,4 +25,9 @@ namespace G04Telemetry
     {
         File = 0
     }
+    public enum LevelEnum : UInt32
+    {
+        Level1=0,
+        Level2=1
+    }
 }

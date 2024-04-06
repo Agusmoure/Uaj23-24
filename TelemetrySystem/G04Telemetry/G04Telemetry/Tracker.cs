@@ -136,16 +136,16 @@ namespace G04Telemetry
         /// <summary>
         /// Añade el evento de inicio de nivel
         /// </summary>
-        public void startLevel()
+        public void startLevel(LevelEnum levelID )
         {
-            addEvent(new LevelStartEvent());
+            addEvent(new LevelStartEvent(levelID));
         }
         /// <summary>
         /// Añade el evento de fin de nivel
         /// </summary>
-        public void endLevel()
+        public void endLevel(LevelEnum levelID)
         {
-            addEvent(new LevelEndEvent());
+            addEvent(new LevelEndEvent(levelID));
         }
         #endregion
         #region pause

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace G04Telemetry.CommonEvents
 {
-    internal class LevelStartEvent : BaseEvent
+    internal class LevelStartEvent<T> : BaseEvent
     {
-        public LevelStartEvent() : base((uint)EventID.LevelStart)
+        public LevelStartEvent(T levelId) : base((uint)EventID.LevelStart)
         {
-
+            _data.Add("LevelID", levelId);
         }
     }
 }
