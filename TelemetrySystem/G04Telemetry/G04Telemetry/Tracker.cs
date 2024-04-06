@@ -143,9 +143,9 @@ namespace G04Telemetry
         /// <summary>
         /// Añade el evento de fin de nivel
         /// </summary>
-        public void endLevel(LevelEnum levelID)
+        public void endLevel(LevelEnum levelID,LevelEnd cause)
         {
-            addEvent(new LevelEndEvent(levelID));
+            addEvent(new LevelEndEvent(levelID,cause));
         }
         #endregion
         #region pause
