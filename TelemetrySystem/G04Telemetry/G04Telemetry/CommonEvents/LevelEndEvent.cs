@@ -8,9 +8,9 @@ namespace G04Telemetry.CommonEvents
 {
     internal class LevelEndEvent : BaseEvent
     {
-        public LevelEndEvent(LevelEnum levelId) : base((uint)EventID.LevelEnd) {
+        public LevelEndEvent(LevelEnum levelId, LevelEnd cause) : base((uint)EventID.LevelEnd) {
             _data.Add("LevelID", levelId);
-
+            _data.Add("LevelEnd", cause);
         }
     }
 }

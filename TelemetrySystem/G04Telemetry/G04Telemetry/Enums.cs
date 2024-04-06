@@ -15,7 +15,13 @@ namespace G04Telemetry
         LevelStart = 4,
         LevelEnd = 5,
         Pause = 6,
-        Resume = 7
+        Resume = 7,
+        //
+        Attack = 8,
+        EnemyReceive = 9,
+        PlayerReceive = 10,
+        PlayerDead = 11,
+        RoomMove = 12,
     }
     public enum SerializeType : UInt32
     {
@@ -29,5 +35,17 @@ namespace G04Telemetry
     {
         Level1=0,
         Level2=1
+    }
+    public enum LevelEnd : UInt32
+    {
+        Win=0,
+        Loose=1,
+        Other=2
+    }
+    public enum EnemyType : UInt32
+    {
+        Robot = 0,
+        Spider = 1
+
     }
 }

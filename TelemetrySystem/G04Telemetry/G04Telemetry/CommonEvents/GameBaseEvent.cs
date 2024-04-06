@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G04Telemetry.CommonEvents
 {
-    internal class GameBaseEvent : BaseEvent
+    public class GameBaseEvent : BaseEvent
     {
 
         public GameBaseEvent(uint eventID) : base(eventID)
