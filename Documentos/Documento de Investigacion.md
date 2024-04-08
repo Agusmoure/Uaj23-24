@@ -57,14 +57,14 @@ Aqui vamos a describir todos los eventos que va a ejecutar nuestro sistema de te
 * **Evento de Juego:** Se trata de un evento que servira de base para todos los eventos del juego
 ### Eventos del juego
 * **Evento Fin de nivel** Este evento se lanza cada vez que se finaliza un nivel, contiene la siguiente información:
-* **Evento de ataque** Este evento se lanza cada vez que el jugador lanza un ataque, contiene el siguiente parámetro:
+* **AttackEvent** Este evento se lanza cada vez que el jugador lanza un ataque, contiene el siguiente parámetro:
   * posicion del jugador
-* **Evento daño a enemigo** Este evento se lanza cada vez que un enemigo recibe daño:
+* **EnemyReceiveDamageEvent** Este evento se lanza cada vez que un enemigo recibe daño:
   * Posicion del enemigo
-* **Evento daño a jugador** Este evento se lanza cada vez que un enemigo ataca al jugador:
+* **PlayerReceiveDamageEvent** Este evento se lanza cada vez que un enemigo hace daño al jugador:
   * Tipo de enemigo
   * Posicion jugador
   * Posicion enemigo
-* **Evento de muerte** Este evento se lanza cuando el jugador muere:
+* **PlayerDeadEvent** Este evento se lanza cuando el jugador muere:
   * posicion del jugador
-* **Evento de movimiento de sala** Este evento se lanza cada vez que el jugador desplaza una sala.
+* **RoomMoveEvent** Este evento se lanza cada vez que el jugador desplaza una sala.
