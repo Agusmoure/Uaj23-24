@@ -16,7 +16,7 @@ Para responder a las preguntas de investigación previamente formuladas, se van 
 
 1. **¿El jugador tarda demasiado tiempo en completar cada uno de los dos niveles?**
 
-Para responder a esta pregunta, se utilizarán percentiles. Se espera que el percentil 85 no corresponda a más de 3 minutos de partida en el nivel 1, y que en el nivel2, el percentil 70 no corresponda a más de 7 minutos. Calcularemos el tiempo que se tarda en completar cada uno de los niveles y el número de veces que se ha completado cada nivel
+Para responder a esta pregunta, se utilizarán percentiles. Se espera que el percentil 85 no corresponda a más de 3 minutos de partida en el nivel 1, y que en el nivel 2, el percentil 70 no corresponda a más de 7 minutos. Calcularemos el tiempo que se tarda en completar cada uno de los niveles y el número de veces que se ha completado cada nivel
 
 2. **¿El jugador usa demasiados movimientos de salas en cada uno de los dos niveles?**
 
@@ -37,34 +37,33 @@ Se utilizará la moda para determinar el enemigo que más daño hace en cada niv
 
 Con un margen de error del 5%.
 ## Eventos
-Aqui vamos a describir todos los eventos que va a ejecutar nuestro sistema de telemetría ya sean de un carácter general o específicos del juego, empecemos con los eventos generales:
-* **Evento base:** Se trata de la clase de la que heredaran todos los eventos que se hagan, este evento tiene los siguientes campos:
+Aquí vamos a describir todos los eventos que va a ejecutar nuestro sistema de telemetría ya sean de un carácter general o específicos del juego. Empecemos con los eventos generales:
+* *BaseEvent:** Se trata de la clase de la que heredaran todos los eventos que se hagan, este evento tiene los siguientes campos:
 	- Hora del evento
 	- Id del evento
 	- Id de sesión
 	- Id del usuario
-* **Inicio de sesion:** Es el primer evento que se lanza al iniciar el tracker, será el encargado de crear la id de sesion.
-* **Fin de sesion:** Evento que se lanza al cerrar el tracker.
-* **Inicio de partida:** Se lanza al darle a play
-* **Fin de partida** Se lanza al salir de la partida.
-* **Inicio de nivel**, se lanza al empezar un nivel. Tendrá los siguientes parámetros:
+* **SessionStartEvent:** Es el primer evento que se lanza al iniciar el tracker, será el encargado de crear la id de sesión.
+* **SessionEndEvent:** Evento que se lanza al cerrar el tracker.
+* **GameStartEvent:** Se lanza al darle a play
+* **GameEndEvent:** Se lanza al salir de la partida.
+* **LevelStartEvent:** Se lanza al empezar un nivel. Tendrá los siguientes parámetros:
   * Id del nivel
-* **Fin de nivel**, se lanza al terminar el nivel o porque se supera o porque se pierde.
+* **LevelEndEvent:** Se lanza al terminar el nivel o porque se supera o porque se pierde.
   * Id del nivel
   * Causa de fin de nivel: ganar/perder/salir/otro
-* **Pausa:** el jugador pone el juego en pausa
-* **Reanudar:** El jugador vuelve al juego desde la pausa
-* **Evento de Juego:** Se trata de un evento que servira de base para todos los eventos del juego
+* **PauseEvent:** El jugador pone el juego en pausa
+* **ResumeEvent:** El jugador vuelve al juego desde la pausa
+* **GameBaseEvent:** Se trata de un evento que servirá de base para todos los eventos del juego
 ### Eventos del juego
-* **Evento Fin de nivel** Este evento se lanza cada vez que se finaliza un nivel, contiene la siguiente información:
-* **AttackEvent** Este evento se lanza cada vez que el jugador lanza un ataque, contiene el siguiente parámetro:
-  * posicion del jugador
-* **EnemyReceiveDamageEvent** Este evento se lanza cada vez que un enemigo recibe daño:
-  * Posicion del enemigo
-* **PlayerReceiveDamageEvent** Este evento se lanza cada vez que un enemigo hace daño al jugador:
+* **AttackEvent:** Este evento se lanza cada vez que el jugador lanza un ataque, contiene el siguiente parámetro:
+  * Posición del jugador
+* **EnemyReceiveDamageEvent:** Este evento se lanza cada vez que un enemigo recibe daño:
+  * Posición del enemigo
+* **PlayerReceiveDamageEvent:** Este evento se lanza cada vez que un enemigo hace daño al jugador:
   * Tipo de enemigo
-  * Posicion jugador
-  * Posicion enemigo
-* **PlayerDeadEvent** Este evento se lanza cuando el jugador muere:
-  * posicion del jugador
-* **RoomMoveEvent** Este evento se lanza cada vez que el jugador desplaza una sala.
+  * Posición jugador
+  * Posición enemigo
+* **PlayerDeadEvent:** Este evento se lanza cuando el jugador muere:
+  * Posición del jugador
+* **RoomMoveEvent:** Este evento se lanza cada vez que el jugador desplaza una sala.
