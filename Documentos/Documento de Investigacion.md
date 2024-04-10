@@ -38,7 +38,7 @@ Se utilizará la moda para determinar el enemigo que más daño hace en cada niv
 Con un margen de error del 5%.
 ## Eventos
 Aquí vamos a describir todos los eventos que va a ejecutar nuestro sistema de telemetría ya sean de un carácter general o específicos del juego. Empecemos con los eventos generales:
-* *BaseEvent:** Se trata de la clase de la que heredaran todos los eventos que se hagan, este evento tiene los siguientes campos:
+* **BaseEvent:** Se trata de la clase de la que heredaran todos los eventos que se hagan, este evento tiene los siguientes campos:
 	- Hora del evento
 	- Id del evento
 	- Id de sesión
