@@ -52,8 +52,8 @@ Aquí vamos a describir todos los eventos que va a ejecutar nuestro sistema de t
 * **LevelStartEvent:** Se lanza al empezar un nivel. Tendrá el siguiente parámetro:
   * ID del nivel
 * **LevelEndEvent:** Se lanza al terminar el nivel o porque se supera o porque se pierde.
-  * Id del nivel
-  * Causa de fin de nivel: ganar/perder/salir/otro
+  * ID del nivel
+  * Causa de fin de nivel: ganar/perder/salir
 * **PauseEvent:** El jugador pone el juego en pausa.
 * **ResumeEvent:** El jugador vuelve al juego desde la pausa.
 * **GameBaseEvent:** Se trata de un evento que servirá de base para todos los eventos del juego.
