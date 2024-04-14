@@ -8,34 +8,28 @@ El objetivo de estas pruebas será determinar si la dificultad de cada nivel de 
 
 * ¿El jugador tarda demasiado tiempo en completar cada uno de los dos niveles? 
 * ¿El jugador usa demasiados movimientos de salas en cada uno de los dos niveles? 
-* ¿El jugador falla significativamente más golpes en el nivel 2 que en el nivel 1?
-* ¿Es coherente la variación del daño provocado por cada enemigo a lo largo de los dos niveles?
+* ¿El jugador falla significativamente más ataques en el nivel 2 que en el nivel 1?
+* ¿Es coherente la variación del daño provocado por cada elemento dañino a lo largo de los dos niveles?
 
 ## Métricas
 Para responder a las preguntas de investigación previamente formuladas, se van a utilizar las siguientes métricas:
 
-1. **Métrica 1: Tiempo para completar el nivel 1**
+1. **Métrica 1: Tiempo de finalización de nivel**
 
-Se analizará la distribución del tiempo que los jugadores toman para completar el nivel 1, utilizando percentiles para identificar si hay problemas de tiempo excesivo. También se examinará el número de veces que se ha completado cada nivel.
+Se estudiará la distribución del tiempo que se tarda en completar cada uno de los niveles.
 
 2. **Métrica 2: Cantidad de movimientos por nivel**
 
-Se examinará el número de movimientos que los jugadores emplean para completar cada nivel. Los valores se agruparán en intervalos de 5 movimientos, como [0,4], [5,9], hasta [50,54]. La moda de esta distribución nos indicará si los niveles requieren de muchos movimientos, adaptándose a la dificultad prevista. 
+Se estudiará la distribución del número de movimientos de sala necesarios para pasar cada nivel.
 
 3. **Métrica 3: Precisión de golpes a los enemigos**
 
-Se analizará la media de los porcentajes de acierto de golpes de los usuarios a los enemigos en los distintos niveles. Para calcularlo se tendrá en cuenta la cantidad de veces que el usuario ataca y las veces que un enemigo recibe daño.
+Se estudiará la media de los porcentajes de acierto de golpes de los usuarios a los enemigos en los distintos niveles. Para calcularlo se tendrá en cuenta la cantidad de veces que el usuario ataca y las veces que un enemigo recibe daño.
 
-4. **Métrica 4: Daño infligido por los enemigos**
+4. **Métrica 4: Impactos de los elementos dañinos**
 
-Se evaluará qué enemigo inflige mayor daño de manera consistente, identificando desbalances en el daño que cada tipo de enemigo debería causar. Se utilizará la moda para determinar el enemigo que más daño hace en cada nivel. Se espera que la distribución, cada 100 golpes, sea de este estilo:
+Se estudiará la distribución del número de veces que cada elemento dañino(enemigos, sierra, alcantarilla) impacta al jugador. Se calculará el porcentaje de impactos de cada obstáculo con respecto al total de impactos.
 
-* Robot: 45%
-* Alcantarilla: 25%
-* Sierra: 20%
-* Araña: 10%
-
-Con un margen de error del 5%.
 ## Eventos
 Aquí vamos a describir todos los eventos que va a ejecutar nuestro sistema de telemetría ya sean de un carácter general o específicos del juego. 
 
