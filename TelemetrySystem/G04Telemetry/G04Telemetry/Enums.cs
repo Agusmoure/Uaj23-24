@@ -45,7 +45,9 @@ namespace G04Telemetry
     public enum EnemyType : UInt32
     {
         Robot = 0,
-        Spider = 1
+        Spider = 1,
+        Saw= 2,
+        Sewer=3
 
     }
 }

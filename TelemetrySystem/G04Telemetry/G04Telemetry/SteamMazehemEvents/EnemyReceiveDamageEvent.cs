@@ -9,10 +9,9 @@ namespace G04Telemetry.SteamMazehemEvents
 {
     public class EnemyReceiveDamageEvent:GameBaseEvent
     {
-        public EnemyReceiveDamageEvent(float x, float y) : base(((uint)EventID.EnemyReceive))
+        public EnemyReceiveDamageEvent() : base(((uint)EventID.EnemyReceive))
         {
-            _data.Add("EnemyX", x);
-            _data.Add("EnmeyY", y);
+         
         }
     }
 }

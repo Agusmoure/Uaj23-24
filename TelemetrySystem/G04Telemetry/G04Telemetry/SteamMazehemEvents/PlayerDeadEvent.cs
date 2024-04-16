@@ -9,10 +9,9 @@ namespace G04Telemetry.SteamMazehemEvents
 {
     public class PlayerDeadEvent:GameBaseEvent
     {
-        public PlayerDeadEvent(float x, float y): base(((uint) EventID.PlayerDead))
+        public PlayerDeadEvent(): base(((uint) EventID.PlayerDead))
         {
-            _data.Add("PlayerX", x);
-            _data.Add("PlayerY", y);
+           
         }
 }
 }
