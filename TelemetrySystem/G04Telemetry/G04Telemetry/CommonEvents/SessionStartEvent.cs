@@ -14,8 +14,8 @@ namespace G04Telemetry.CommonEvents
             _data.Add("Game", gameName);
 
             _sessionID = Guid.NewGuid();
-            _data.Add("Session", _sessionID);
-
+           // _data.Add("Session", _sessionID);
+            _data["Session"] = _sessionID;
             tracker.setSessionID(_sessionID);
         }
 
