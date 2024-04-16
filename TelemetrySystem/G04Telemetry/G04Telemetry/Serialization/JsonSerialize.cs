@@ -10,7 +10,7 @@ namespace G04Telemetry.Serialization
     internal class JsonSerialize : SerializationInterface
     {
         private bool _firstTime = true;
-        private bool _continue = false;
+
         public string getExtension()
         {
             return ".json";
@@ -23,14 +23,15 @@ namespace G04Telemetry.Serialization
         /// <returns></returns>
         public string serializeAll(ref Queue<BaseEvent> events)
         {
-            string all = _firstTime && !_continue ? "" : ",";
-            _firstTime = false;
-            if (events.Count <= 0) 
-                _continue = false;
+            string all = "";
+            if (events.Count > 0)
+            {
+                all = _firstTime ? "" : ",";
+                _firstTime = false;
 
+            }
             while (events.Count > 0)
             {
-                _continue = true;
                 all += serialize(events.Dequeue());
                 if (events.Count != 0)
                 {
