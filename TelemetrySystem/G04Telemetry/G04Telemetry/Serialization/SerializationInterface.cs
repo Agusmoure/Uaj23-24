@@ -32,11 +32,6 @@ namespace G04Telemetry.Serialization
         /// <returns></returns>
         string endSerialize();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns> El tipo de serializacion</returns>
-        SerializeType getType();
 
         /// <returns>Formato del tipo de archivos .json,xml,etc.. </returns>
         string getExtension();

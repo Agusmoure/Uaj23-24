@@ -20,18 +20,42 @@ Meter UML de eventos
 
 ## Serialización
 
-Esta parte es la encargada de procesar los datos y guardarlos en el formato deseado ya sea JSON (**JSONSerialize**) o cualquier otro formato que se implemente siguiendo la interfaz **SerializationInterface**.
+Esta parte es la encargada de procesar los datos y guardarlos en el formato deseado ya sea JSON (**JsonSerialize**) o cualquier otro formato que se implemente siguiendo la interfaz **SerializationInterface**.
 
-```
-Meter UML de serializacion
+```mermaid
+classDiagram
+    SerializationInterface <|-- JsonSerialize
+    SerializationInterface: # startSerialize()
+    SerializationInterface: # serialize(BaseEvent ev)
+    SerializationInterface: # serializeAll(ref Queue<BaseEvent> events)
+    SerializationInterface: # endSerialize()
+    SerializationInterface: # getExtension()
+    class JsonSerialize{
+      - bool _firstTime
+    }
+
 ```
 
 ## Persistencia
 
 Será la encargada de enviar los datos en archivos al disco duro o a un servidor.
 
-```
-Meter UML de persistencia
+```mermaid
+classDiagram
+    PersistanceBase <|-- FilePersistance
+    PersistanceBase: # Queue<BaseEvent> _events
+    PersistanceBase: # SerializationInterface _serializationInterface
+    PersistanceBase: # addEvent(BaseEvent e)
+    PersistanceBase: # removeEvent()
+    PersistanceBase: # flush()
+    PersistanceBase: # close()
+    class FilePersistance{
+        - string _fileName
+        - StreamWriter _fileWriter
+        +  FilePersistance(string fileName, SerializationInterface serialize)
+    }
+
+
 ```
 
 ## Tracker
