@@ -9,7 +9,7 @@ namespace G04Telemetry.SteamMazehemEvents
 {
     public class RoomMoveEvent: GameBaseEvent
     {
-        public RoomMoveEvent() : base(((uint)EventID.RoomMove))
+        public RoomMoveEvent() : base(((uint)EventType.RoomMove))
         {
 
         }

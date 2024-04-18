@@ -8,7 +8,7 @@ namespace G04Telemetry.CommonEvents
 {
     internal class ResumeEvent : BaseEvent
     {
-        public ResumeEvent() : base((uint)EventID.Resume)
+        public ResumeEvent() : base((uint)EventType.Resume)
         {
 
         }

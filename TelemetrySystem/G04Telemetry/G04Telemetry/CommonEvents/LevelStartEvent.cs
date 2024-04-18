@@ -8,7 +8,7 @@ namespace G04Telemetry.CommonEvents
 {
     internal class LevelStartEvent : BaseEvent
     {
-        public LevelStartEvent(LevelEnum levelId) : base((uint)EventID.LevelStart)
+        public LevelStartEvent(LevelEnum levelId) : base((uint)EventType.LevelStart)
         {
             _data.Add("LevelID", levelId);
         }

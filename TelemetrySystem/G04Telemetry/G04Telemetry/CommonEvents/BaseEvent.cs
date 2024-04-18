@@ -20,7 +20,8 @@ namespace G04Telemetry.CommonEvents
             _data = new Dictionary<string, object>();
             _sessionID = Tracker.Instance().getSessionID();
             _userID = Tracker.Instance().getUserID();
-            _data.Add("eventId", id);
+            _data.Add("eventType", id);
+            _data.Add("IDEvent", Guid.NewGuid());
             _data.Add("timestamp", _timeStamp);
             //Datos que deben compartir todos los eventos siempre y cuando existan
             _data.Add("Session", _sessionID);

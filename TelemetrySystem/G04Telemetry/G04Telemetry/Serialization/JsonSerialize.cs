@@ -41,11 +41,6 @@ namespace G04Telemetry.Serialization
             return all;
         }
 
-        public SerializeType getType()
-        {
-            return SerializeType.JSON;
-        }
-
         public string startSerialize()
         {
             return "{\"data\":[";

@@ -40,11 +40,5 @@ namespace G04Telemetry.Persistance
         public abstract void flush();
 
         public abstract void close();
-        #region test
-        public int eventCount()
-        {
-            return _events.Count;
-        }
-        #endregion
     }
 }

@@ -8,7 +8,7 @@ namespace G04Telemetry.CommonEvents
 {
     internal class PauseEvent : BaseEvent
     {
-        public PauseEvent() : base((uint)EventID.Pause)
+        public PauseEvent() : base((uint)EventType.Pause)
         {
 
         }

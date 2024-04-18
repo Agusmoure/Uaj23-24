@@ -9,7 +9,7 @@ namespace G04Telemetry.SteamMazehemEvents
 {
     public class PlayerDeadEvent:GameBaseEvent
     {
-        public PlayerDeadEvent(): base(((uint) EventID.PlayerDead))
+        public PlayerDeadEvent(): base(((uint) EventType.PlayerDead))
         {
            
         }

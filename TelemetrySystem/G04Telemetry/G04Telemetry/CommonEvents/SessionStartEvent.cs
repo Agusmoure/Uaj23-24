@@ -9,7 +9,7 @@ namespace G04Telemetry.CommonEvents
     internal class SessionStartEvent : BaseEvent
     {
        
-        public SessionStartEvent(Tracker tracker, string gameName, Guid userID) : base((uint)EventID.SessionStart)
+        public SessionStartEvent(Tracker tracker, string gameName, Guid userID) : base((uint)EventType.SessionStart)
         {
             _data.Add("Game", gameName);
 

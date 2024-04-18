@@ -11,7 +11,6 @@ namespace G04Telemetry
 {
     public class Tracker
     {
-        private Queue<BaseEvent> _events;
         private Guid _sessionID;
         private Guid _userId;
         private string _gameName;
@@ -45,7 +44,6 @@ namespace G04Telemetry
             _timeToFlush = timeToFlush;
             _gameName = gameName;
             _userId = Guid.NewGuid();
-            _events = new Queue<BaseEvent>();
 
         }
         private void initSerialize(SerializeType serializeType)
@@ -186,20 +184,6 @@ namespace G04Telemetry
         }
 
         internal SerializationInterface getSerialization() { return _serialization; }
-        #region Test Functions
-        public Queue<BaseEvent> getEvents()
-        {
-            return _events;
-        }
-        public int getNumberOFEvents()
-        {
-            return _persistance.eventCount();
-        }
-        public string getFirstEventSer()
-        {
-            return _serialization.serialize(_events.Peek());
-        }
-        #endregion
     }
 
 }

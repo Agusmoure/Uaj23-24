@@ -9,7 +9,7 @@ namespace G04Telemetry.CommonEvents
     internal class SessionEndEvent : BaseEvent
     {
         Guid _sessionId;
-        public SessionEndEvent() : base((uint)EventID.SessionStop)
+        public SessionEndEvent() : base((uint)EventType.SessionStop)
         {
         }
     }

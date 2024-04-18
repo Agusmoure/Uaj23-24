@@ -8,7 +8,7 @@ namespace G04Telemetry.CommonEvents
 {
     internal class GameStartEvent : BaseEvent
     {
-        public GameStartEvent() : base((uint)EventID.GameStart)
+        public GameStartEvent() : base((uint)EventType.GameStart)
         {
 
         }

@@ -9,7 +9,7 @@ namespace G04Telemetry.SteamMazehemEvents
 {
     public class AttackEvent:GameBaseEvent
     {
-        public AttackEvent() : base(((uint)EventID.Attack))
+        public AttackEvent() : base(((uint)EventType.Attack))
         {
            
         }

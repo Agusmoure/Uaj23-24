@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G04Telemetry
 {
-    public enum EventID : UInt32
+    public enum EventType : UInt32
     {
         SessionStart = 0,
         SessionStop = 1,
