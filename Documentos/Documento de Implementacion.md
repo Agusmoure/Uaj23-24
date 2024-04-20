@@ -14,8 +14,55 @@ Los eventos representan los datos que se van a recoger para posteriormente anali
 
 Para desarrollar los eventos se crea una clase base *BaseEvent* que contiene los parámetros necesarios y comunes a todos los eventos, como pueden ser el timestamp (fecha del evento), ID de sesion, ID de usuario,...
 
-```
-Meter UML de eventos
+```mermaid
+classDiagram
+    BaseEvent <|-- GameBaseEvent
+    BaseEvent <|-- GameEndEvent
+    BaseEvent <|-- GameStartEvent
+    BaseEvent <|-- LevelEndEvent
+    BaseEvent <|-- LevelStartEvent
+    BaseEvent <|-- PauseEvent
+    BaseEvent <|-- ResumeEvent
+    BaseEvent <|-- SessionEndEvent
+    BaseEvent <|-- SessionStartEvent
+    BaseEvent: # - uint _eventId
+    BaseEvent: # - long _timeStamp
+    BaseEvent: # - Guid _sessionID
+    BaseEvent: # - Guid _userID
+    BaseEvent: # Dictionary<string, object> _data
+    BaseEvent: # BaseEvent(uint id)
+    BaseEvent: # getIDEvent()
+    BaseEvent: # getTimeStamp()
+    BaseEvent: # getData() 
+    class GameBaseEvent{
+      GameBaseEvent : # GameBaseEvent(uint id)
+    }
+    class GameEndEvent {
+        GameEndEvent : # GameEndEvent()
+    }
+    class GameStartEvent {
+        GameStartEvent : # GameStartEvent() 
+    }
+    class LevelEndEvent {
+        LevelEndEvent : # LevelEndEvent(LevelEnum levelId, LevelEnd cause)
+    }
+    class LevelStartEvent {
+        LevelStartEvent : # LevelStartEvent(LevelEnum levelId)
+    }
+    class PauseEvent {
+        PauseEvent : # PauseEvent()
+    }
+    class ResumeEvent {
+        ResumeEvent : # ResumeEvent()
+    }
+    class SessionStartEvent {
+        SessionStartEvent : # SessionStartEvent(Tracker tracker, string gameName, Guid userID)
+    }
+    class SessionEndEvent {
+        SessionEndEvent : #  Guid _sessionId
+        SessionEndEvent : # SessionEndEvent()
+    }
+
 ```
 
 ## Serialización
