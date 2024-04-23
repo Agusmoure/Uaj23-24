@@ -11,6 +11,8 @@ namespace G04Telemetry.CommonEvents
         public LevelStartEvent(LevelEnum levelId) : base((uint)EventType.LevelStart)
         {
             _data.Add("LevelID", levelId);
+            Guid gameSessionID = Tracker.Instance().getGameSessionID();
+            _data.Add("GameSession", gameSessionID);
         }
     }
 }
