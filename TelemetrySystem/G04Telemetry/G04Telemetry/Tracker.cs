@@ -38,7 +38,7 @@ namespace G04Telemetry
             //Crea la id de sesion al generar el evento
             SessionStartEvent sE = new SessionStartEvent(_instance, gameName, _instance._userId);
             _instance.initSerialize(serializeType);
-            string fn=filename+"_"+_instance._gameSessionID;
+            string fn=filename+"_"+_instance._sessionID;
             //crea la cola de eventos ya que se guarda e el sistema de persistencia
             _instance.initPersistance(persistance,fn);
             //añade el evento despues de crear la cola
