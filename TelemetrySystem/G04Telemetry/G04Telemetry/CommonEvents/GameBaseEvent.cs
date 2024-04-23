@@ -8,12 +8,12 @@ namespace G04Telemetry.CommonEvents
 {
     public class GameBaseEvent : BaseEvent
     {
-
+        Guid _gameSessionID;
+        LevelEnum _level;
         public GameBaseEvent(uint eventID) : base(eventID)
         {
-            //Duda preguntar lo de la id del evento unico porque quizas con el timestamp ya sirve
-
-
+            _gameSessionID=Tracker.Instance().getGameSessionID();
+            _level = Tracker.Instance().getLevel();
         }
     }
 }

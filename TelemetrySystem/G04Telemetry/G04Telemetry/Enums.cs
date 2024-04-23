@@ -33,8 +33,9 @@ namespace G04Telemetry
     }
     public enum LevelEnum : UInt32
     {
-        Level1=0,
-        Level2=1
+        None = 0,
+        Level1=1,
+        Level2=2
     }
     public enum LevelEnd : UInt32
     {

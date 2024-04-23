@@ -13,6 +13,8 @@ namespace G04Telemetry
     {
         private Guid _sessionID;
         private Guid _userId;
+        private Guid _gameSessionID;
+        private LevelEnum _level;
         private string _gameName;
         private float _timeToFlush;
         private float _timer;
@@ -33,9 +35,14 @@ namespace G04Telemetry
         {
             if (_instance != null) return false;
             _instance = new Tracker(gameName,timeToFlush);
+            //Crea la id de sesion al generar el evento
+            SessionStartEvent sE = new SessionStartEvent(_instance, gameName, _instance._userId);
             _instance.initSerialize(serializeType);
-            _instance.initPersistance(persistance,filename);
-            _instance.startSession(_instance);
+            string fn=filename+"_"+_instance._gameSessionID;
+            //crea la cola de eventos ya que se guarda e el sistema de persistencia
+            _instance.initPersistance(persistance,fn);
+            //añade el evento despues de crear la cola
+            _instance.startSession(sE);
             return true;
         }
 
@@ -100,9 +107,9 @@ namespace G04Telemetry
         /// <summary>
         /// Añade el evento de inicio de sesion
         /// </summary>
-        void startSession(Tracker t)
+        void startSession(SessionStartEvent sEvent)
         {
-            addEvent(new SessionStartEvent(t,_gameName, _userId));
+            addEvent(sEvent);
         }
         /// <summary>
         /// Añade el evento de fin de sesion
@@ -120,6 +127,7 @@ namespace G04Telemetry
         /// </summary>
         public void startGame()
         {
+            _gameSessionID=Guid.NewGuid();
             addEvent(new GameStartEvent());
         }
         /// <summary>
@@ -128,6 +136,10 @@ namespace G04Telemetry
         public void endGame()
         {
             addEvent(new GameEndEvent());
+            _gameSessionID = Guid.Empty;
+        }
+        internal Guid getGameSessionID() {
+        return _gameSessionID;
         }
         #endregion
         #region level
@@ -136,6 +148,7 @@ namespace G04Telemetry
         /// </summary>
         public void startLevel(LevelEnum levelID )
         {
+            _level = levelID;
             addEvent(new LevelStartEvent(levelID));
         }
         /// <summary>
@@ -144,6 +157,11 @@ namespace G04Telemetry
         public void endLevel(LevelEnum levelID,LevelEnd cause)
         {
             addEvent(new LevelEndEvent(levelID,cause));
+            _level = LevelEnum.None;
+        }
+        internal LevelEnum getLevel()
+        {
+            return _level;
         }
         #endregion
         #region pause
