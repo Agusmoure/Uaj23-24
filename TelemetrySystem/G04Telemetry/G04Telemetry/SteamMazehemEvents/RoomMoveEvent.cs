@@ -9,9 +9,9 @@ namespace G04Telemetry.SteamMazehemEvents
 {
     public class RoomMoveEvent: GameBaseEvent
     {
-        public RoomMoveEvent(LevelEnum level) : base(((uint)EventType.RoomMove))
+        public RoomMoveEvent() : base(((uint)EventType.RoomMove))
         {
-            _data.Add("Level", level);
+            
         }
     }
 }
