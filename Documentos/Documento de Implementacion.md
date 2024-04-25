@@ -129,33 +129,28 @@ Existen distintos enums, aquí se pueden ver todos con sus valores numéricos co
         Attack = 8,
         EnemyReceive = 9,
         PlayerReceive = 10,
-        PlayerDead = 11,
-        RoomMove = 12,
+        RoomMove = 11,
     }
-
     public enum SerializeType : UInt32
     {
         JSON = 0
     }
-
     public enum PersistanceType : UInt32
     {
         File = 0
     }
-
     public enum LevelEnum : UInt32
     {
-        Level1=0,
-        Level2=1
+        None = 0,
+        Level1=1,
+        Level2=2
     }
-
     public enum LevelEnd : UInt32
     {
         Win=0,
         Loose=1,
         Other=2
     }
-     
     public enum EnemyType : UInt32
     {
         Robot = 0,
