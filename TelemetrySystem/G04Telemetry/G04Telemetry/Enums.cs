@@ -20,8 +20,7 @@ namespace G04Telemetry
         Attack = 8,
         EnemyReceive = 9,
         PlayerReceive = 10,
-        PlayerDead = 11,
-        RoomMove = 12,
+        RoomMove = 11,
     }
     public enum SerializeType : UInt32
     {

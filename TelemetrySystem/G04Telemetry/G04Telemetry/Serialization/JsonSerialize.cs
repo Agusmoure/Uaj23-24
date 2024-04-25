@@ -57,7 +57,7 @@ namespace G04Telemetry.Serialization
         /// <returns></returns>
         public string serialize(BaseEvent ev)
         {
-            return JsonConvert.SerializeObject(ev.getData(), Formatting.Indented);
+            return JsonConvert.SerializeObject(ev.getData());
         }
     }
 }

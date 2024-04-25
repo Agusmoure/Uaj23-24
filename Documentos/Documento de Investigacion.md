@@ -16,11 +16,11 @@ Para responder a las preguntas de investigación previamente formuladas, se van 
 
 1. **Métrica 1: Tiempo de finalización de nivel**
 
-Se estudiará la distribución del tiempo que se tarda en completar cada uno de los niveles.
+Se estudiará la distribución del tiempo que se tarda en completar cada uno de los niveles. Apoyondos parqa ello en el tiempo medio (media) y en la mediana del tiempo que se tarda en completar un nivel, no se tendrá en cuenta el tiempo que el juego este pausado.
 
 2. **Métrica 2: Cantidad de movimientos por nivel**
 
-Se estudiará la distribución del número de movimientos de sala necesarios para pasar cada nivel.
+Se estudiará la distribución del número de movimientos de sala necesarios para pasar cada nivel.Se utilizará la moda para determinar dicha distribucion para  cada nivel. Se agruparán los valores en intervalos de 5 movimientos, como [0,4], [5,9], hasta [50,54].
 
 3. **Métrica 3: Precisión de golpes a los enemigos**
 
@@ -39,6 +39,7 @@ Aquí vamos a describir todos los eventos que va a ejecutar nuestro sistema de t
 	- ID del evento
 	- ID de sesión
 	- ID del usuario
+  - Tipo de evento
 * **SessionStartEvent:** Es el primer evento que se lanza al iniciar el tracker, será el encargado de crear la ID de sesión.
 * **SessionEndEvent:** Evento que se lanza al cerrar el tracker.
 * **GameStartEvent:** Se lanza al darle a play.
@@ -51,6 +52,8 @@ Aquí vamos a describir todos los eventos que va a ejecutar nuestro sistema de t
 * **PauseEvent:** El jugador pone el juego en pausa.
 * **ResumeEvent:** El jugador vuelve al juego desde la pausa.
 * **GameBaseEvent:** Se trata de un evento que servirá de base para todos los eventos del juego.
+  - ID del nivel
+  - ID de la partida
 
 ### Eventos Específicos del Juego
 * **AttackEvent:** Este evento se lanza cada vez que el jugador lanza un ataque.
@@ -58,6 +61,5 @@ Aquí vamos a describir todos los eventos que va a ejecutar nuestro sistema de t
   * Tipo de enemigo
 * **PlayerReceiveDamageEvent:** Este evento se lanza cada vez que un enemigo hace daño al jugador:
   * Tipo de enemigo
-* **PlayerDeadEvent:** Este evento se lanza cuando el jugador muere:
-  * Posición del jugador
 * **RoomMoveEvent:** Este evento se lanza cada vez que el jugador desplaza una sala.
+
