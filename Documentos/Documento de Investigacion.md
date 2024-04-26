@@ -9,7 +9,7 @@ El objetivo de estas pruebas será determinar si la dificultad de cada nivel de 
 * ¿El jugador tarda demasiado tiempo en completar cada uno de los dos niveles? 
 * ¿El jugador usa demasiados movimientos de salas en cada uno de los dos niveles? 
 * ¿El jugador falla significativamente más ataques en el nivel 2 que en el nivel 1?
-* ¿Es coherente la variación del daño provocado por cada elemento dañino a lo largo de los dos niveles?
+* ¿Es coherente la variación de impactos provocados por cada elemento dañino a lo largo de los dos niveles?
 
 ## Métricas
 Para responder a las preguntas de investigación previamente formuladas, se van a utilizar las siguientes métricas:
