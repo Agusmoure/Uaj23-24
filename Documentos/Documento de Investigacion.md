@@ -28,7 +28,7 @@ Se estudiará la media de los porcentajes de acierto de golpes de los usuarios a
 
 4. **Métrica 4: Impactos de los elementos dañinos**
 
-Se estudiará la distribución del número de veces que cada elemento dañino(enemigos, sierra, alcantarilla) impacta al jugador. Se calculará la media de impactos de cada elemento dañino por nivel, comparando el número de impactos de cada elemento con el total de impactos de elementos dañinos en ese nivel.
+Se estudiará la distribución del número de veces que cada elemento dañino(enemigos, sierra, alcantarilla) impacta al jugador. Se calculará el porcentaje de impactos de cada elemento dañino por nivel, comparando el número de impactos de cada elemento con el total de impactos de elementos dañinos en ese nivel.
 ## Eventos
 Aquí vamos a describir todos los eventos que va a ejecutar nuestro sistema de telemetría ya sean de un carácter general o específicos del juego. 
 
