@@ -16,11 +16,11 @@ Para responder a las preguntas de investigación previamente formuladas, se van 
 
 1. **Métrica 1: Tiempo de finalización de nivel**
 
-Se estudiará la distribución del tiempo que se tarda en completar cada uno de los niveles. Apoyondos parqa ello en el tiempo medio (media) y en la mediana del tiempo que se tarda en completar un nivel, no se tendrá en cuenta el tiempo que el juego este pausado.
+Se estudiará la distribución del tiempo que se tarda en completar cada uno de los niveles. Apoyandonos para ello en el tiempo medio (media) y en la mediana del tiempo que se tarda en completar un nivel, no se tendrá en cuenta el tiempo que el juego este pausado. Para los cálculos solo se tendrán en cuenta los niveles que se han completado exitosamente.
 
 2. **Métrica 2: Cantidad de movimientos por nivel**
 
-Se estudiará la distribución del número de movimientos de sala necesarios para pasar cada nivel.Se utilizará la moda para determinar dicha distribucion para  cada nivel. Se agruparán los valores en intervalos de 5 movimientos, como [0,4], [5,9], hasta [50,54].
+Se evaluará la cantidad de movimientos necesarios para superar cada nivel. Utilizaremos la moda para identificar patrones en la distribución de movimientos por nivel, agrupándolos en intervalos de 5 movimientos, como [0,4], [5,9], etc. Para los cálculos solo se tendrán en cuenta los niveles que se han completado exitosamente.
 
 3. **Métrica 3: Precisión de golpes a los enemigos**
 
@@ -28,8 +28,7 @@ Se estudiará la media de los porcentajes de acierto de golpes de los usuarios a
 
 4. **Métrica 4: Impactos de los elementos dañinos**
 
-Se estudiará la distribución del número de veces que cada elemento dañino(enemigos, sierra, alcantarilla) impacta al jugador. Se calculará el porcentaje de impactos de cada obstáculo con respecto al total de impactos.
-
+Se estudiará la distribución del número de veces que cada elemento dañino(enemigos, sierra, alcantarilla) impacta al jugador. Se calculará la media de impactos de cada elemento dañino por nivel, comparando el número de impactos de cada elemento con el total de impactos de elementos dañinos en ese nivel.
 ## Eventos
 Aquí vamos a describir todos los eventos que va a ejecutar nuestro sistema de telemetría ya sean de un carácter general o específicos del juego. 
 
