@@ -10,3 +10,5 @@ Este proyecto tiene que tener instalado [Newtonsoft.Json](https://learn.microsof
 [Documento de investigación](/Documentos/Documento%20de%20Investigacion.md)
 
 [Documento de implementación](/Documentos/Documento%20de%20Implementacion.md)
+
+[Documento de partes opcionales](./Documentos/PartesOpcionales.md)

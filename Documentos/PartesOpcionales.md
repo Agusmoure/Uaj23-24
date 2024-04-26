@@ -1,1 +1,3 @@
-No se han implementado partes opcionales.
+# Partes opcionales
+
+No se han implementado partes opcionales
