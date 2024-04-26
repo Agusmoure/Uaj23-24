@@ -35,32 +35,50 @@ classDiagram
     BaseEvent: # getTimeStamp()
     BaseEvent: # getData() 
     class GameBaseEvent{
-      GameBaseEvent : # GameBaseEvent(uint id)
+       #  Guid _gameSessionID
+       # LevelEnum: _level
+       # GameBaseEvent(uint id)
     }
+    GameBaseEvent<|--AttackEvent
+    GameBaseEvent<|--EnemyReceiveDamageEvent
+    GameBaseEvent<|--PlayerReceiveDamageEvent
+    GameBaseEvent<|--RoomMoveEvent
     class GameEndEvent {
-        GameEndEvent : # GameEndEvent()
+         # GameEndEvent()
     }
     class GameStartEvent {
-        GameStartEvent : # GameStartEvent() 
+         # GameStartEvent() 
     }
     class LevelEndEvent {
-        LevelEndEvent : # LevelEndEvent(LevelEnum levelId, LevelEnd cause)
+         # LevelEndEvent(LevelEnum levelId, LevelEnd cause)
     }
     class LevelStartEvent {
-        LevelStartEvent : # LevelStartEvent(LevelEnum levelId)
+         # LevelStartEvent(LevelEnum levelId)
     }
     class PauseEvent {
-        PauseEvent : # PauseEvent()
+         # PauseEvent()
     }
     class ResumeEvent {
-        ResumeEvent : # ResumeEvent()
+         # ResumeEvent()
     }
     class SessionStartEvent {
-        SessionStartEvent : # SessionStartEvent(Tracker tracker, string gameName, Guid userID)
+     # SessionStartEvent(Tracker tracker, string gameName, Guid userID)
     }
     class SessionEndEvent {
-        SessionEndEvent : #  Guid _sessionId
-        SessionEndEvent : # SessionEndEvent()
+         #  Guid _sessionId
+         # SessionEndEvent()
+    }
+    class AttackEvent{
+        + AttackEvent()
+    }
+    class EnemyReceiveDamageEvent{
+        + EnemyReceiveDamageEvent()
+    }
+    class PlayerReceiveDamageEvent{
+        + PlayerReceiveDamageEvent(EnemyType type)
+    }
+    class RoomMoveEvent{
+        + RoomMoveEvent()
     }
 
 ```
